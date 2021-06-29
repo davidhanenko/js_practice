@@ -34,7 +34,6 @@
 
 // ==================================
 
-
 // ==================================
 // Two Sum
 
@@ -63,7 +62,6 @@
 //   const numArr = num.toString().split('');
 //   const resArr = [numArr];
 
-
 //   for (let i = 1; i < numArr.length; i++) {
 //     if (parseInt(numArr[i - 1] + numArr[i]) <= alphabet.length) {
 //       resArr.push(
@@ -90,12 +88,12 @@
 
 // var findMaxConsecutiveOnes = function(nums) {
 //     let j=0;
-//     let max=0; 
+//     let max=0;
 //     for (let i=0;i<=nums.length; i++) {
 //         if(nums[i] !== 1) {
 //             max < i-j ? max = i-j: max;
 //             j = i+1
-//         }    
+//         }
 //     }
 //     return max;
 // };
@@ -109,25 +107,24 @@
 // const twoSum = function(numbers, target) {
 //    let r = numbers.length-1;
 //    let l = 0;
-  
+
 //     while (l < r) {
-        
+
 //         let sum = numbers[l] + numbers[r]
-    
+
 //         if(sum === target) {
 //             return [l+1, r+1];
-            
-//         } else { 
+
+//         } else {
 //             sum > target ? r-- : l++
-       
+
 //     }
 //     }
-    
+
 // };
 
 // twoSum([2,7,11,15],9) // [1,2]
 // =================
-
 
 // =============
 
@@ -140,7 +137,7 @@
 // var removeElement = function(nums, val) {
 //     let i = 0;
 //    while(i <= nums.length) {
-//       if(nums[i] === val) { 
+//       if(nums[i] === val) {
 //           nums.splice(i,1)
 //           i--
 //       }
@@ -150,3 +147,27 @@
 // };
 // =============
 // =============
+
+// Given an array of positive integers nums and a positive integer target, return the minimal length of a contiguous subarray [numsl, numsl+1, ..., numsr-1, numsr] of which the sum is greater than or equal to target. If there is no such subarray, return 0 instead.
+
+// var minSubArrayLen = function (target, nums) {
+//   let j = 0;
+//   let minLen = nums.length;
+//   let sum = 0;
+
+//   if (nums.reduce((a, b) => a + b) < target) return 0;
+
+//   for (let i = 0; i < nums.length; i++) {
+//     sum += nums[i];
+//     while (sum >= target) {
+//       minLen > i - j + 1 ? (minLen = i - j + 1) : minLen;
+//       sum -= nums[j++];
+//     }
+//   }
+
+//   return minLen;
+// };
+
+// =============
+// =============
+// =============// =============
