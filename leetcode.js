@@ -102,7 +102,7 @@
 // =================
 // =================
 // Given an array of integers numbers that is already sorted in non-decreasing order, find two numbers such that they add up to a specific target number.
-// Return the indices of the two numbers (1-indexed) as an integer array answer of size 2, where 1 <= answer[0] < answer[1] <= numbers.length.
+// Return the indexes of the two numbers (1-indexed) as an integer array answer of size 2, where 1 <= answer[0] < answer[1] <= numbers.length.
 
 // const twoSum = function(numbers, target) {
 //    let r = numbers.length-1;
@@ -170,4 +170,22 @@
 
 // =============
 // =============
+
+// Example 1:
+
+// Input: nums = [-2,1,-3,4,-1,2,1,-5,4]
+// Output: 6
+// Explanation: [4,-1,2,1] has the largest sum = 6.
+
+// var maxSubArray = function (nums) {
+//   let maxSum = nums[0];
+//   let curSum = 0;
+
+//   for (let i = 0; i < nums.length; i++) {
+//     curSum = Math.max(curSum + nums[i], nums[i]);
+//     maxSum = Math.max(maxSum, curSum);
+//   }
+//   return maxSum;
+// };
+
 // =============// =============
