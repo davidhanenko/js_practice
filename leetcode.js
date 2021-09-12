@@ -267,38 +267,26 @@
 //   let c = 0;
 
 //   l = arrA.length > arrB.length ? arrA.length : arrB.length;
-
 //   for (let i = 0; i < l; i++) {
-//     if ((arrA[i], arrB[i])) {
-//       if (arrA[i] + arrB[i] + c === 0) {
-//         arr.push(0);
-//         if (c !== 0) {
-//           c = 0;
-//         }
-//       } else if (arrA[i] + arrB[i] + c === 1) {
-//         arr.push(1);
-
-//         if (c !== 0) {
-//           c = 0;
-//         }
-//       } else if (arrA[i] + arrB[i] + c === 2) {
-//         c = 1;
-//         arr.push(0);
-//       } else {
-//         c = 1;
-//         arr.push(1);
-//       }
-//     } else if (arrA[i]) {
-//       if (arrA[i] + c !== 1) {
-//         arr.push(0);
-//         c = 1;
-//       } else {
-//         arr.push(arrA[i] + c);
+//     if (!arrA[i]) {
+//       arrA[i] = 0;
+//     }
+//     if (!arrB[i]) {
+//       arrB[i] = 0;
+//     }
+//     if (arrA[i] + arrB[i] + c === 0) {
+//       arr.push(0);
+//     } else if (arrA[i] + arrB[i] + c === 1) {
+//       arr.push(1);
+//       if (c !== 0) {
 //         c = 0;
 //       }
+//     } else if (arrA[i] + arrB[i] + c === 2) {
+//       arr.push(0);
+//       c = 1;
 //     } else {
-//       arr.push(arrB[i] + c);
-//       c = 0;
+//       arr.push(1);
+//       c = 1;
 //     }
 //   }
 //   if (c === 1) arr.push(1);
