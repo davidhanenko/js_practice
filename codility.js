@@ -55,8 +55,17 @@
 // ===============================
 
 // **************
-
+// cyclic rotation of array
 // **************
+// function cyclicRotation(arr, k) {
+//   let result = new Array(arr.length);
 
+//   for (let i = 0; i < result.length; i++) {
+//     result[(i + k) % arr.length] = arr[i];
+//   }
+//   return result;
+// }
+
+// console.log(cyclicRotation([3, 8, 9, 7, 6], 3));
 // ===============================
 // ===============================
