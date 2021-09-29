@@ -43,7 +43,7 @@
 //     for (let j = i+1; j < nums.length; j++) {
 //       res = nums[i] + nums[j];
 //       if (res == target) {
-//         return
+//         return [i,j];
 //       }
 //     }
 //   }
@@ -198,7 +198,6 @@
 
 // If the index is on the left edge of the array, then the left sum is 0 because there are no elements to the left. This also applies to the right edge of the array.
 
-
 // var pivotIndex = function (nums) {
 //   let left = 0;
 //   let right = nums.reduce((a, b) => a + b, 0) - nums[0];
@@ -232,14 +231,11 @@
 //   return index;
 // };
 
-
-
 // =============// =============
 // =============// =============
 // You are given a large integer represented as an integer array digits, where each digits[i] is the ith digit of the integer. The digits are ordered from most significant to least significant in left-to-right order. The large integer does not contain any leading 0's.
 
 // Increment the large integer by one and return the resulting array of digits.
-
 
 // const plusOne = function (digits) {
 //   if (digits.length < 16) {
@@ -249,49 +245,63 @@
 //   }
 // };
 
-
 // =============// =============
 // =============// =============
 
+// let arrA = a.split('').reverse();
+//     let arrB = b.split('').reverse();
+//     let arr =[];
+//     let c = 0;
 
-// var addBinary = function (a, b) {
-//   let arrA = a
-//     .split('')
-//     .reverse()
-//     .map(el => +el);
-//   let arrB = b
-//     .split('')
-//     .reverse()
-//     .map(el => +el);
-//   let arr = [];
-//   let c = 0;
+//     l = arrA.length > arrB.length ? arrA.length : arrB.length;
+//       for (let i = 0; i < l; i++) {
 
-//   l = arrA.length > arrB.length ? arrA.length : arrB.length;
-//   for (let i = 0; i < l; i++) {
-//     if (!arrA[i]) {
-//       arrA[i] = 0;
+//           arrA[i] = !arrA[i] ? 0 : arrA[i];
+//           arrB[i] = !arrB[i] ? 0 : arrB[i];
+
+//           let sum = +arrA[i] + +arrB[i] + c
+
+//         if (sum === 0) {
+//           arr.push(0);
+//         } else if (sum === 1) {
+//           arr.push(1);
+//           if (c !== 0) {
+//             c = 0;
+//           }
+//         } else if (sum === 2) {
+//           arr.push(0);
+//           c = 1;
+//         } else {
+//           arr.push(1);
+//           c = 1;
+//         }
 //     }
-//     if (!arrB[i]) {
-//       arrB[i] = 0;
-//     }
-//     if (arrA[i] + arrB[i] + c === 0) {
-//       arr.push(0);
-//     } else if (arrA[i] + arrB[i] + c === 1) {
-//       arr.push(1);
-//       if (c !== 0) {
-//         c = 0;
-//       }
-//     } else if (arrA[i] + arrB[i] + c === 2) {
-//       arr.push(0);
-//       c = 1;
-//     } else {
-//       arr.push(1);
-//       c = 1;
-//     }
-//   }
-//   if (c === 1) arr.push(1);
-//   return arr.reverse().join('');
+//     if(c === 1) arr.push(1);
+//     return arr.reverse().join('');
+
+// ======
+// BigInt solution
+// return (BigInt('0b' + a) + BigInt('0b' + b)).toString(2);
+// =====
 // };
 
 // =============// =============
 // =============// =============
+
+
+// const twoSum = function (nums, target) {
+//   const map = new Map();
+
+//   for (let i = 0; i < nums.length; i++) {
+
+//     let diff = target - nums[i];
+
+//     if (map.has(diff)) {
+//       return [map.get(diff), i]
+//     }
+//     map.set(nums[i], i);
+//   }
+  
+// };
+
+// console.log(twoSum([2,7,11,15], 9))
