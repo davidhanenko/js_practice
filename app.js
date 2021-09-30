@@ -583,6 +583,8 @@
 // console.log(capitalizeFirst(['car', 'taco', 'banana', 'home']))
 
 
+// ====================
+// ====================
 // var maxSubArray = function (nums) {
 //   let sum = -Infinity;
 //   let curSum = 0;
@@ -595,3 +597,30 @@
 // };
 
 // console.log(maxSubArray([-2, 1, -3, 4, -1, 2, 1, -5, 4]));
+
+// ====================
+// ====================
+// function subStrOccurence(s, str) {
+//   let occ = 0;
+
+//   let j = 0;
+
+//   for(let i = 0; i<str.length; i++ ) {
+    
+//     if(s[j] !== str[i]) {
+//       j = 0;
+//     } 
+
+//     if(j === s.length - 1) {
+//       occ++
+//       j = 0;
+//     }
+
+//     j++;
+//   }
+// return occ;
+// }
+
+// console.log(subStrOccurence('str', 'weststrtststrraastrh'));
+// ====================
+// ====================
