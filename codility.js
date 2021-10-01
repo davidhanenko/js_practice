@@ -103,6 +103,22 @@
 
 // ===============================
 // ===============================
+// **************
+// TapeEquilibrium
+// **************
+
+// function tapeEquilibrium(A) {
+//   let left = A[0];
+//   let right = A.reduce((a, b) => a + b) - left;
+//   let minDiff = Math.abs(left - right);
+
+//   for (let i = 1; i < A.length - 1; i++) {
+//     left += A[i];
+//     right -= A[i];
+//     minDiff = Math.min(minDiff, Math.abs(left - right));
+//   }
+//   return minDiff;
+// }
 // ===============================
 // ===============================
 
