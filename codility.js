@@ -95,11 +95,10 @@
 // **************
 // Permanent missing element
 // **************
-  // function solution(A) {
-  //   const newLength = A.length + 1;
-  //   return (newLength * (newLength + 1)) / 2 - A.reduce((a, b) => a + b);
-  // }
-
+// function solution(A) {
+//   const newLength = A.length + 1;
+//   return (newLength * (newLength + 1)) / 2 - A.reduce((a, b) => a + b);
+// }
 
 // ===============================
 // ===============================
@@ -122,11 +121,25 @@
 // ===============================
 // ===============================
 
+// **************
+//A small frog wants to get to the other side of a river. The frog is initially located on one bank of the river (position 0) and wants to get to the opposite bank (position X+1). Leaves fall from a tree onto the surface of the river.
+// **************
+// function solution(X, A) {
+//   let jumps = X;
+//   let positionsArr = new Array(X + 1).fill(false);
+
+//   for (let i = 0; i < A.length; i++) {
+//     if (!positionsArr[A[i]]) {
+//       positionsArr[A[i]] = true;
+//       jumps--;
+//     }
+//     if (jumps === 0) return i;
+//   }
+//   return -1;
+// }
+
 // ===============================
 // ===============================
 
-
-
 // ===============================
 // ===============================
-
