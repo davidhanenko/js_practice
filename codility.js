@@ -124,6 +124,7 @@
 // **************
 //A small frog wants to get to the other side of a river. The frog is initially located on one bank of the river (position 0) and wants to get to the opposite bank (position X+1). Leaves fall from a tree onto the surface of the river.
 // **************
+
 // function solution(X, A) {
 //   let jumps = X;
 //   let positionsArr = new Array(X + 1).fill(false);
@@ -140,6 +141,21 @@
 
 // ===============================
 // ===============================
+
+// **************
+// A permutation is a sequence containing each element from 1 to N once, and only once.
+// Check if array A is a permutation
+// **************
+
+// function permCheck(A) {
+//   if (A.length === 1 && A[0] !== 1) return 0;
+//   A.sort((a, b) => a - b);
+//   if (A[0] !== 1) return 0;
+//   for (let i = 1; i < A.length; i++) {
+//     if (A[i] - A[i - 1] !== 1) return 0;
+//   }
+//   return 1;
+// }
 
 // ===============================
 // ===============================
