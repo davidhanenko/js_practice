@@ -159,3 +159,36 @@
 
 // ===============================
 // ===============================
+// **************
+//Calculate the values of counters after applying all alternating operations: increase counter by 1; set value of all counters to current maximum.
+// **************
+
+// function maxCounters(N, A) {
+//     const arr = new Array(N).fill(0);
+//     let max = 0;
+//     let start = 0;
+//     for (let i = 0; i < A.length; i++) {
+//       let index = A[i] - 1;
+//       if (A[i] > N) {
+//         start = max;
+//       } else {
+//         arr[index] < start ? (arr[index] = start + 1) : (arr[index] += 1);
+//         max = Math.max(max, arr[index]);
+//       }
+//     }
+//     for (let i = 0; i < arr.length; i++) {
+//       arr[i] < start ? (arr[i] = start) : arr[i];
+//     }
+//     return arr;
+//   }
+
+// ===============================
+// ===============================
+// ===============================
+// ===============================
+// ===============================
+// ===============================
+// ===============================
+// ===============================
+// ===============================
+// ===============================
