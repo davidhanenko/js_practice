@@ -159,6 +159,8 @@
 
 // ===============================
 // ===============================
+
+
 // **************
 //Calculate the values of counters after applying all alternating operations: increase counter by 1; set value of all counters to current maximum.
 // **************
@@ -184,6 +186,32 @@
 
 // ===============================
 // ===============================
+
+// **************
+// A non-empty array A consisting of N integers is given. The consecutive elements of array A represent consecutive cars on a road.
+
+// Array A contains only 0s and/or 1s:
+
+// 0 represents a car traveling east,
+// 1 represents a car traveling west.
+// The goal is to count passing cars. We say that a pair of cars (P, Q), where 0 ≤ P < Q < N, is passing when P is traveling to the east and Q is traveling to the west.
+// **************
+
+// function passingCars(A) {
+//   let countCar = 0;
+//   let sumArr = new Array(A.length);
+//   let tempSum = 0;
+
+//   for (let i = A.length - 1; i >= 0; i--) {
+//     tempSum += A[i];
+//     sumArr[i] = tempSum;
+//     if (A[i] === 0) countCar += sumArr[i];
+//   }
+//   return countCar <= 1000000000 ? countCar : -1;
+// }
+
+
+
 // ===============================
 // ===============================
 // ===============================
