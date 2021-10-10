@@ -214,6 +214,23 @@
 
 // ===============================
 // ===============================
+
+// **************
+
+// Write a function:
+
+// function solution(A, B, K);
+
+// that, given three integers A, B and K, returns the number of integers within the range [A..B] that are divisible by K, i.e.:
+// **************
+
+// function countDiv(A, B, K) {
+//     let start = Math.ceil(A/K);
+//     let end = Math.floor(B/K);
+
+//     return end -start + 1;
+// }
+
 // ===============================
 // ===============================
 // ===============================
