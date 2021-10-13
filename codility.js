@@ -233,6 +233,17 @@
 
 // ===============================
 // ===============================
+
+// **************
+
+// Write a function
+// that, given an array A consisting of N integers, returns the number of distinct values in array A.
+
+// **************
+
+// function solution(A) {
+//   return new Set(A).size;
+// }
 // ===============================
 // ===============================
 // ===============================

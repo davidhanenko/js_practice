@@ -624,3 +624,34 @@
 // console.log(subStrOccurence('str', 'weststrtststrraastrh'));
 // ====================
 // ====================
+
+z// =================
+// function translit(num) {
+//   const alphabet = [...Array(26)].map((_, y) => String.fromCharCode(y + 97));
+
+//   const numArr = num.toString().split('');
+//   const resArr = [numArr];
+
+
+//   for (let i = 1; i < numArr.length; i++) {
+//     if (parseInt(numArr[i - 1] + numArr[i]) <= alphabet.length) {
+//       resArr.push(
+//         [
+//           numArr.slice(0, i - 1),
+//           numArr[i - 1] + numArr[i],
+//           numArr.slice(i + 1),
+//         ].flat()
+//       );
+//     }
+//   }
+
+//   for (let i = 0; i < resArr.length; i++) {
+//     resArr[i] = resArr[i].map(el => (el = alphabet[parseInt(el) - 1])).join('');
+//   }
+
+//   return resArr;
+// }
+
+// console.log(translit(11258));
+
+// =================
