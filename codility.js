@@ -246,5 +246,55 @@
 // }
 // ===============================
 // ===============================
+
+// **************
+// For example, consider array A such that:
+//   A[0] = 10    A[1] = 2    A[2] = 5
+//   A[3] = 1     A[4] = 8    A[5] = 20
+// Triplet (0, 2, 4) is triangular.
+// Write a function:
+// function solution(A);
+// that, given an array A consisting of N integers, returns 1 if there exists a triangular triplet for this array and returns 0 otherwise.
+
+// **************
+
+// function triangular(A) {
+//   if (A.length < 3) return 0;
+
+//   A.sort((a, b) => b - a);
+//   for (let i = 0; i < A.length - 2; i++) {
+//     if (A[i] < A[i + 1] + A[i + 2]) return 1;
+//   }
+//   return 0;
+// }
+
+
+
+// ===============================
+// ===============================
+
+
+
+// **************
+// Your goal is to find the maximal product of any triplet.
+// **************
+
+// function maxTripletOfArray(A) {
+//   A.sort((a,b)=>a-b);
+//   let p1 = A[A.length-1] * A[A.length-2] * A[A.length-3];
+//   let p2 = A[0] * A[1] * A[A.length-1]; 
+//   return Math.max(p1, p2);
+// }
+
+
+// ===============================
+// ===============================
+
+// ===============================
+// ===============================
+
+// ===============================
+// ===============================
+
 // ===============================
 // ===============================
