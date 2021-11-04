@@ -290,6 +290,28 @@
 // ===============================
 // ===============================
 
+// **************
+// Determine whether a given string of parentheses (multiple types) is properly nested.
+// **************
+
+// function brackets(S) {
+// let stack = [];
+//    for(let i=0; i<S.length; i++) {
+//        if(S[i] == '(' || S[i] == '{' || S[i] == '[') {
+//            stack.push(S[i]);
+//         } else {
+//             let test;
+//             if(stack.length != 0) {
+//            test = stack.pop();
+//             } else return 0;
+//            if(test === '(' && S[i]!==')') return 0;
+//            if(test === '{' && S[i]!=='}') return 0;
+//            if(test === '[' && S[i]!==']') return 0;
+//         }
+//    }
+// return 1;
+// }
+
 // ===============================
 // ===============================
 
