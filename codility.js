@@ -160,7 +160,6 @@
 // ===============================
 // ===============================
 
-
 // **************
 //Calculate the values of counters after applying all alternating operations: increase counter by 1; set value of all counters to current maximum.
 // **************
@@ -209,8 +208,6 @@
 //   }
 //   return countCar <= 1000000000 ? countCar : -1;
 // }
-
-
 
 // ===============================
 // ===============================
@@ -268,12 +265,8 @@
 //   return 0;
 // }
 
-
-
 // ===============================
 // ===============================
-
-
 
 // **************
 // Your goal is to find the maximal product of any triplet.
@@ -282,10 +275,9 @@
 // function maxTripletOfArray(A) {
 //   A.sort((a,b)=>a-b);
 //   let p1 = A[A.length-1] * A[A.length-2] * A[A.length-3];
-//   let p2 = A[0] * A[1] * A[A.length-1]; 
+//   let p2 = A[0] * A[1] * A[A.length-1];
 //   return Math.max(p1, p2);
 // }
-
 
 // ===============================
 // ===============================
@@ -312,8 +304,54 @@
 // return 1;
 // }
 
+// anothert solution (100%)
+// function brackets(S) {
+//   let stack = [];
+//   let current = '';
+
+//   for (let i = 0; i < S.length; i++) {
+//     current = S[i];
+//     if (current == '{' || current == '[' || current == '(') {
+//       stack.push(current);
+//     } else if (current == '}') {
+//       if (stack.length == 0 || stack.pop() != '{') return 0;
+//     } else if (current == ']') {
+//       if (stack.length == 0 || stack.pop() != '[') return 0;
+//     } else if (current == ')') {
+//       if (stack.length == 0 || stack.pop() != '(') return 0;
+//     }
+//   }
+
+//   return stack.length ? 0 : 1;
+// }
 // ===============================
 // ===============================
+
+
+// FISH 
+
+// function solution(A, B) {
+//   let surv = 0;
+//   let stack = [];
+
+//   for (let i = 0; i < A.length; i++) {
+//     if (B[i] === 1) {
+//       stack.push(A[i]);
+//     } else {
+//       let temp = stack.length === 0 ? -1 : stack.pop();
+
+//       while (temp !== -1 && temp < A[i]) {
+//         temp = stack.length === 0 ? -1 : stack.pop();
+//       }
+//       if (temp === -1) {
+//         surv++;
+//       } else {
+//         stack.push(temp);
+//       }
+//     }
+//   }
+//   return surv + stack.length;
+// }
 
 // ===============================
 // ===============================
