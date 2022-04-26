@@ -42,7 +42,6 @@
 //   for (char of str1) {
 //     obj[char] ? obj[char]++ : (obj[char] = 1)
 //   }
-// console.log(obj)
 
 //   for (char of str2) {
 //     if (!obj[char]) {

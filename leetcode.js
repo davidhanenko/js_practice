@@ -305,3 +305,164 @@
 // };
 
 // console.log(twoSum([2,7,11,15], 9))
+
+// =============// =============
+// =============// =============
+
+
+// Single Number
+const singleNumber = function (nums) {
+  let res = nums[0];
+  for (let i = 1; i < nums.length; i++) {
+    res ^= nums[i];
+  }
+  return res;
+
+  // let obj = {};
+  // for (let el of nums) {
+  //  obj[el] ? obj[el]++ : (obj[el] = 1);
+  // }
+  // for (const [key, value] of Object.entries(obj)) {
+  //  if (value % 2 !== 0) return +key;
+  // }
+};
+
+// console.log(singleNumber([1,1,2,2,4]));
+
+
+// =============// =============
+// =============// =============
+
+// Given an integer array nums, return true if any value appears at least twice in the array, and return false if every element is distinct.
+const containsDuplicate = function (nums) {
+  const s = new Set(nums);
+  return s.size === nums.length ? false : true;
+
+  // const obj = {};
+  // for (let i = 0; i < nums.length; i++) {
+  // obj[nums[i]] ? obj[nums[i]]++ : (obj[nums[i]] = 1);
+  // if (obj[nums[i]] > 1) return true;
+  // }
+  // return false;
+};
+
+// =============// =============
+// =============// =============]
+
+// Given an array, rotate the array to the right by k steps, where k is non-negative.
+
+const rotate = function (nums, k) {
+  const arr = new Array(nums.length);
+  for (let i = 0; i < nums.length; i++) {
+    arr[(i + k) % nums.length] = nums[i];
+  }
+  for (let i = 0; i < arr.length; i++) {
+    nums[i] = arr[i];
+  }
+  // k = k % nums.length;
+  // if(k === 0) return nums;
+  // const arr = nums.slice(-k);
+  // nums.unshift(...arr);
+  // nums.splice(-k, k);
+};
+
+// =============// =============
+// =============// =============
+
+// You are given an integer array prices where prices[i] is the price of a given stock on the ith day.
+
+// On each day, you may decide to buy and/or sell the stock. You can only hold at most one share of the stock at any time. However, you can buy it then immediately sell it on the same day.
+
+// Find and return the maximum profit you can achieve.
+
+const maxProfit = function (prices) {
+  let res = 0;
+  for (let i = 1; i < prices.length; i++) {
+    if (prices[i - 1] < prices[i]) {
+      res += prices[i] - prices[i - 1];
+    }
+  }
+  return res;
+};
+
+
+// =============// =============
+// =============// =============
+
+// Given an integer array nums sorted in non-decreasing order, remove the duplicates in-place such that each unique element appears only once. The relative order of the elements should be kept the same.
+var removeDuplicates = function (nums) {
+  let k = 0;
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] !== nums[i + 1]) {
+      nums[k] = nums[i];
+      k++;
+    }
+  }
+  return k;
+};
+
+// =============// =============
+// =============// =============
+// Given two integer arrays nums1 and nums2, return an array of their intersection. Each element in the result must appear as many times as it shows in both arrays and you may return the result in any order.
+
+var intersect = function (nums1, nums2) {
+  let obj = {};
+
+  let arr = [];
+
+  for (let el of nums1) {
+    obj[el] ? obj[el]++ : (obj[el] = 1);
+  }
+
+  for (let k of nums2) {
+    if (obj[k]) {
+      arr.push(k);
+      obj[k]--;
+    }
+  }
+  return arr;
+
+  //     let obj1 = {};
+  //     let obj2 = {};
+  //     let str = '';
+
+  //     for(let el of nums1) {
+  //         obj1[el] ? obj1[el]++ : obj1[el] = 1;
+  //     }
+  //     for(let el of nums2) {
+  //         obj2[el] ? obj2[el]++ : obj2[el] = 1;
+  //     }
+
+  //    for(let k in obj1) {
+  //       if(obj2[k]) {
+  //           obj1[k] <= obj2[k] ? (str += (k+" ").repeat(obj1[k])) : (str += (k+" ").repeat(obj2[k]))
+  //       }
+  //    }
+  //     return str.split(' ').slice(0,-1);
+};
+// =============// =============
+// =============// =============
+
+
+// =============// =============
+// =============// =============
+
+
+
+// =============// =============
+// =============// =============
+
+
+
+// =============// =============
+// =============// =============
+
+
+
+// =============// =============
+// =============// =============
+
+
+
+// =============// =============
+// =============// =============
