@@ -54,7 +54,7 @@
 // 9))
 
 // =======================
-// if digit & sum of two inrow digits les than last letter of alphabet(26 => "z") Convert it to letter on this index
+// if digit & sum of two in row digits les than last letter of alphabet(26 => "z") Convert it to letter on this index
 
 // function convert(num) {
 //   const alphabet = [...Array(26)].map((_, y) => String.fromCharCode(y + 97));
@@ -89,7 +89,7 @@
 // var findMaxConsecutiveOnes = function(nums) {
 //     let j=0;
 //     let max=0;
-//     for (let i=0;i<=nums.length; i++) {
+//     for (let i=0; i<=nums.length; i++) {
 //         if(nums[i] !== 1) {
 //             max < i-j ? max = i-j: max;
 //             j = i+1
@@ -288,27 +288,23 @@
 // =============// =============
 // =============// =============
 
+const twoSum = function (nums, target) {
+  const map = new Map();
 
-// const twoSum = function (nums, target) {
-//   const map = new Map();
+  for (let i = 0; i < nums.length; i++) {
+    let diff = target - nums[i];
 
-//   for (let i = 0; i < nums.length; i++) {
-
-//     let diff = target - nums[i];
-
-//     if (map.has(diff)) {
-//       return [map.get(diff), i]
-//     }
-//     map.set(nums[i], i);
-//   }
-  
-// };
+    if (map.has(diff)) {
+      return [map.get(diff), i];
+    }
+    map.set(nums[i], i);
+  }
+};
 
 // console.log(twoSum([2,7,11,15], 9))
 
 // =============// =============
 // =============// =============
-
 
 // Single Number
 const singleNumber = function (nums) {
@@ -328,7 +324,6 @@ const singleNumber = function (nums) {
 };
 
 // console.log(singleNumber([1,1,2,2,4]));
-
 
 // =============// =============
 // =============// =============
@@ -384,7 +379,6 @@ const maxProfit = function (prices) {
   }
   return res;
 };
-
 
 // =============// =============
 // =============// =============
@@ -443,26 +437,193 @@ var intersect = function (nums1, nums2) {
 // =============// =============
 // =============// =============
 
+// =============// =============
+// =============// =============
+// You are given a large integer represented as an integer array digits, where each digits[i] is the ith digit of the integer. The digits are ordered from most significant to least significant in left-to-right order. The large integer does not contain any leading 0's.
+
+const plusOne = function (digits) {
+  return digits.length < 16
+    ? (+digits.join('') + 1).toString().split('')
+    : (BigInt(digits.join('')) + 1n).toString().split('');
+};
+
+// =============// =============
+// =============// =============
+// Given an integer array nums, move all 0's to the end of it while maintaining the relative order of the non-zero elements.
+
+const moveZeroes = function (nums) {
+  // let j = 0;
+  //  for(let i=0; i<nums.length; i++ ) {
+  //      if(nums[i] !==0) {
+  //         let temp = nums[j];
+  //         nums[j++] = nums[i];
+  //          nums[i] = temp;
+  //      }
+  //  }
+
+  let j = 0;
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] !== 0) {
+      nums[j++] = nums[i];
+    }
+  }
+  while (j < nums.length) nums[j++] = 0;
+
+  return nums;
+};
+// =============// =============
+// =============// =============
+// Determine if a 9 x 9 Sudoku board is valid. Only the filled cells need to be validated according to the following rules:
+const isValidSudoku = function (board) {
+  const obj = {};
+  let cell;
+  for (let i = 0; i < 9; i++) {
+    for (let j = 0; j < 9; j++) {
+      cell = board[i][j];
+      if (cell !== '.') {
+        if (
+          obj['i' + i + cell] ||
+          obj['j' + j + cell] ||
+          obj[
+            'b' +
+              Math.floor(i / 3) +
+              Math.floor(j / 3) +
+              cell
+          ]
+        )
+          return false;
+        obj['i' + i + cell] = 1;
+        obj['j' + j + cell] = 1;
+        obj[
+          'b' + Math.floor(i / 3) + Math.floor(j / 3) + cell
+        ] = 1;
+      }
+      console.log(obj);
+    }
+  }
+  return true;
+};
+
+// =============// =============
+// =============// =============
+// Given a signed 32-bit integer x, return x with its digits reversed. If reversing x causes the value to go outside the signed 32-bit integer range [-231, 231 - 1], then return 0.
+const reverse = function (x) {
+  x =
+    x > 0
+      ? +String(x).split('').reverse().join('')
+      : -String(Math.abs(x)).split('').reverse().join('');
+
+  return x > 2 ** 31 - 1 || x < (-2) ** 31 ? 0 : x;
+};
+
+// =============// =============
+// =============// =============
+// Given a string s, find the first non-repeating character in it and return its index. If it does not exist, return -1.
+
+const firstUniqChar = function (s) {
+  let obj = {};
+  s.split('').forEach(el => {
+    obj[el] ? obj[el]++ : (obj[el] = 1);
+  });
+  for (let char of s) {
+    if (obj[char] === 1) return s.indexOf(char);
+  }
+  return -1;
+};
 
 // =============// =============
 // =============// =============
 
+// A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters, it reads the same forward and backward. Alphanumeric characters include letters and numbers.
+// Given a string s, return true if it is a palindrome, or false otherwise.
 
+const isPalindrome = function (s) {
+  if (s === '' || s === ' ') return true;
+
+  let arr = s.match(/[0-9A-Za-z]/g);
+  if (!arr) return true;
+
+  return (
+    arr.join('').toLowerCase() ===
+    arr.reverse().join('').toLowerCase()
+  );
+};
 
 // =============// =============
 // =============// =============
 
+// Implement strStr().
+// Given two strings needle and haystack, return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.
 
+const strStr = function (haystack, needle) {
+  // let r = new RegExp(needle);
+  //   return haystack.search(r);
+
+  // return haystack.indexOf(needle);
+
+  for (let i = 0; i < haystack.length; i++) {
+    let t = haystack.slice(i, needle.length + i);
+    if (t == needle) return i;
+  }
+  return -1;
+};
 
 // =============// =============
 // =============// =============
 
+// You are given an array prices where prices[i] is the price of a given stock on the ith day.
 
+// You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock.
+
+// Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.
+
+var maxProfit = function (prices) {
+  let max = 0;
+  let j = 0;
+
+  for (let i = 1; i < prices.length; i++) {
+    let temp = prices[i] - prices[j];
+
+    if (temp > 0) {
+      max = Math.max(temp, max);
+    } else {
+      j = i;
+    }
+  }
+
+  return max;
+};
+
+// =============// =============
+// =============// =============
+// longest pefix
+var longestCommonPrefix = function (strs) {
+  let l = '';
+
+  for (let j = 0; j < strs[0].length; j++) {
+    l += strs[0][j];
+    for (let i = 0; i < strs.length; i++) {
+      let temp = l[j];
+
+      if (strs[i][j] != temp) {
+        return l.slice(0, -1);
+      }
+    }
+  }
+  return l;
+};
 
 // =============// =============
 // =============// =============
 
+// =============// =============
+// =============// =============
 
+// =============// =============
+// =============// =============
+
+// =============// =============
+// =============// =============
 
 // =============// =============
 // =============// =============
