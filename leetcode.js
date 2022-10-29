@@ -615,7 +615,17 @@ var longestCommonPrefix = function (strs) {
 
 // =============// =============
 // =============// =============
+const maxSubArray = function (nums) {
+  let maxSum = nums[0];
+  let temp = 0;
 
+  for (let i = 0; i < nums.length; i++) {
+    temp = Math.max(temp + nums[i], nums[i]);
+
+    maxSum = Math.max(maxSum, temp);
+  }
+  return maxSum;
+};
 // =============// =============
 // =============// =============
 
