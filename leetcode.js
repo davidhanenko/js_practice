@@ -629,6 +629,23 @@ const maxSubArray = function (nums) {
 // =============// =============
 // =============// =============
 
+// You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjacent houses have security systems connected and it will automatically contact the police if two adjacent houses were broken into on the same night.
+
+const rob = function(nums) {
+    let sum = [];
+    if (nums.length === 0) return 0;
+    if (nums.length < 3) return Math.max(...nums);
+    
+    sum =[nums[0], Math.max(nums[0], nums[1])];
+   
+    for(let i = 2; i < nums.length; i++) {
+       
+        sum[i] = Math.max(sum[i-2] + nums[i], sum[i-1]);
+    }
+    
+    return sum[nums.length-1];
+};
+
 // =============// =============
 // =============// =============
 
