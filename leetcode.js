@@ -631,23 +631,49 @@ const maxSubArray = function (nums) {
 
 // You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjacent houses have security systems connected and it will automatically contact the police if two adjacent houses were broken into on the same night.
 
-const rob = function(nums) {
-    let sum = [];
-    if (nums.length === 0) return 0;
-    if (nums.length < 3) return Math.max(...nums);
-    
-    sum =[nums[0], Math.max(nums[0], nums[1])];
-   
-    for(let i = 2; i < nums.length; i++) {
-       
-        sum[i] = Math.max(sum[i-2] + nums[i], sum[i-1]);
-    }
-    
-    return sum[nums.length-1];
+const rob = function (nums) {
+  let sum = [];
+  if (nums.length === 0) return 0;
+  if (nums.length < 3) return Math.max(...nums);
+
+  sum = [nums[0], Math.max(nums[0], nums[1])];
+
+  for (let i = 2; i < nums.length; i++) {
+    sum[i] = Math.max(sum[i - 2] + nums[i], sum[i - 1]);
+  }
+
+  return sum[nums.length - 1];
 };
 
 // =============// =============
 // =============// =============
+
+// You are climbing a staircase. It takes n steps to reach the top.
+
+// Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?
+
+var climbStairs = function (n) {
+  //     let obj = {};
+  //       if(n in obj) {
+  //        return obj[n];
+  //       }
+  //       let res = n < 2 ? 1 : climbStairs(n-1) + climbStairs(n-2);
+  //       obj[n] = res;
+
+  let res = 0;
+  let first = 0;
+  let second = 1;
+  let i = 0;
+
+  while (i < n) {
+    res = first + second;
+    first = second;
+    second = res;
+    i++;
+  }
+
+  return res;
+};
 
 // =============// =============
 // =============// =============
