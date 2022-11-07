@@ -717,6 +717,22 @@ const countPrimes = function (n) {
 
 // =============// =============
 // =============// =============
+// Given an integer n, return true if it is a power of three. Otherwise, return false.
+
+// An integer n is a power of three, if there exists an integer x such that n == 3x.
+
+
+const isPowerOfThree = function (n) {
+  // if(n===1) return true;
+  // if(n<3) return false;
+  // return isPowerOfThree(n/3);
+
+  while (n >= 3) {
+    n /= 3;
+  }
+  return n === 1;
+};
+
 
 // =============// =============
 // =============// =============
