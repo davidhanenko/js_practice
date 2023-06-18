@@ -288,18 +288,18 @@
 // =============// =============
 // =============// =============
 
-const twoSum = function (nums, target) {
-  const map = new Map();
+// const twoSum = function (nums, target) {
+//   const map = new Map();
 
-  for (let i = 0; i < nums.length; i++) {
-    let diff = target - nums[i];
+//   for (let i = 0; i < nums.length; i++) {
+//     let diff = target - nums[i];
 
-    if (map.has(diff)) {
-      return [map.get(diff), i];
-    }
-    map.set(nums[i], i);
-  }
-};
+//     if (map.has(diff)) {
+//       return [map.get(diff), i];
+//     }
+//     map.set(nums[i], i);
+//   }
+// };
 
 // console.log(twoSum([2,7,11,15], 9))
 
@@ -370,30 +370,30 @@ const rotate = function (nums, k) {
 
 // Find and return the maximum profit you can achieve.
 
-const maxProfit = function (prices) {
-  let res = 0;
-  for (let i = 1; i < prices.length; i++) {
-    if (prices[i - 1] < prices[i]) {
-      res += prices[i] - prices[i - 1];
-    }
-  }
-  return res;
-};
+// const maxProfit = function (prices) {
+//   let res = 0;
+//   for (let i = 1; i < prices.length; i++) {
+//     if (prices[i - 1] < prices[i]) {
+//       res += prices[i] - prices[i - 1];
+//     }
+//   }
+//   return res;
+// };
 
 // =============// =============
 // =============// =============
 
 // Given an integer array nums sorted in non-decreasing order, remove the duplicates in-place such that each unique element appears only once. The relative order of the elements should be kept the same.
-var removeDuplicates = function (nums) {
-  let k = 0;
-  for (let i = 0; i < nums.length; i++) {
-    if (nums[i] !== nums[i + 1]) {
-      nums[k] = nums[i];
-      k++;
-    }
-  }
-  return k;
-};
+// var removeDuplicates = function (nums) {
+//   let k = 0;
+//   for (let i = 0; i < nums.length; i++) {
+//     if (nums[i] !== nums[i + 1]) {
+//       nums[k] = nums[i];
+//       k++;
+//     }
+//   }
+//   return k;
+// };
 
 // =============// =============
 // =============// =============
@@ -577,55 +577,55 @@ const strStr = function (haystack, needle) {
 
 // Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.
 
-var maxProfit = function (prices) {
-  let max = 0;
-  let j = 0;
+// var maxProfit = function (prices) {
+//   let max = 0;
+//   let j = 0;
 
-  for (let i = 1; i < prices.length; i++) {
-    let temp = prices[i] - prices[j];
+//   for (let i = 1; i < prices.length; i++) {
+//     let temp = prices[i] - prices[j];
 
-    if (temp > 0) {
-      max = Math.max(temp, max);
-    } else {
-      j = i;
-    }
-  }
+//     if (temp > 0) {
+//       max = Math.max(temp, max);
+//     } else {
+//       j = i;
+//     }
+//   }
 
-  return max;
-};
-
-// =============// =============
-// =============// =============
-// longest pefix
-var longestCommonPrefix = function (strs) {
-  let l = '';
-
-  for (let j = 0; j < strs[0].length; j++) {
-    l += strs[0][j];
-    for (let i = 0; i < strs.length; i++) {
-      let temp = l[j];
-
-      if (strs[i][j] != temp) {
-        return l.slice(0, -1);
-      }
-    }
-  }
-  return l;
-};
+//   return max;
+// };
 
 // =============// =============
 // =============// =============
-const maxSubArray = function (nums) {
-  let maxSum = nums[0];
-  let temp = 0;
+// longest prefix
+// var longestCommonPrefix = function (strs) {
+//   let l = '';
 
-  for (let i = 0; i < nums.length; i++) {
-    temp = Math.max(temp + nums[i], nums[i]);
+//   for (let j = 0; j < strs[0].length; j++) {
+//     l += strs[0][j];
+//     for (let i = 0; i < strs.length; i++) {
+//       let temp = l[j];
 
-    maxSum = Math.max(maxSum, temp);
-  }
-  return maxSum;
-};
+//       if (strs[i][j] != temp) {
+//         return l.slice(0, -1);
+//       }
+//     }
+//   }
+//   return l;
+// };
+
+// =============// =============
+// =============// =============
+// const maxSubArray = function (nums) {
+//   let maxSum = nums[0];
+//   let temp = 0;
+
+//   for (let i = 0; i < nums.length; i++) {
+//     temp = Math.max(temp + nums[i], nums[i]);
+
+//     maxSum = Math.max(maxSum, temp);
+//   }
+//   return maxSum;
+// };
 // =============// =============
 // =============// =============
 
@@ -680,9 +680,9 @@ var climbStairs = function (n) {
 
 // const fizzBuzz = function(n) {
 //     const resArr = [];
-    
+
 //     for(let i=1; i<=n; i++) {
-        
+
 //     if (i % 3 === 0 && i % 5 === 0) {
 //         resArr.push('FizzBuzz');
 //     } else if (i % 3 === 0) {
@@ -692,7 +692,7 @@ var climbStairs = function (n) {
 //     } else {
 //         resArr.push(String(i));
 //     }
-//     } 
+//     }
 //         return resArr;
 // };
 
@@ -721,7 +721,6 @@ const countPrimes = function (n) {
 
 // An integer n is a power of three, if there exists an integer x such that n == 3x.
 
-
 const isPowerOfThree = function (n) {
   // if(n===1) return true;
   // if(n<3) return false;
@@ -733,36 +732,135 @@ const isPowerOfThree = function (n) {
   return n === 1;
 };
 
+// =============// =============
+// =============// =============
+var romanToInt = function (s) {
+  let res = 0;
 
-// =============// =============
-// =============// =============
-var romanToInt = function(s) {
-    let res = 0;
-    
-        const obj = {
-        I: 1,
-        V: 5,
-        X: 10,
-        L: 50,
-        C: 100,
-        D: 500,
-        M: 1000
+  const obj = {
+    I: 1,
+    V: 5,
+    X: 10,
+    L: 50,
+    C: 100,
+    D: 500,
+    M: 1000,
+  };
+
+  for (let i = 0; i < s.length; i++) {
+    if (obj[s[i + 1]] && obj[s[i]] < obj[s[i + 1]]) {
+      res -= obj[s[i]];
+    } else {
+      res += obj[s[i]];
     }
-    
-    for (let i=0; i<s.length; i++) {
-        if( obj[s[i+1]] && obj[s[i]] < obj[s[i+1]]) {
-           res -= obj[s[i]]
-        } else {
-           res += obj[s[i]]
-        }
-    }
-    return res;
+  }
+  return res;
 };
 // =============// =============
 // =============// =============
 
+// var merge = function (nums1, m, nums2, n) {
+//   //     nums1.splice(m, n, ...nums2)
+//   //     return nums1.sort((a,b) => a-b);
+
+//   let i = m - 1;
+//   let j = n - 1;
+//   let x = m + n - 1;
+
+//   while (i >= 0 && j >= 0) {
+//     if (nums1[i] > nums2[j]) {
+//       nums1[x--] = nums1[i--];
+//     } else {
+//       nums1[x--] = nums2[j--];
+//     }
+//   }
+//   while (j >= 0) {
+//     nums1[x--] = nums2[j--];
+//   }
+
+//   return nums1;
+// };
+
 // =============// =============
 // =============// =============
+
+var maximumCostSubstring = function (s, chars, vals) {
+  let charValueMap = [];
+  // Build DefaultA Array
+  for (let i = 0; i < 26; i++) charValueMap[i] = i + 1;
+  // Replace Default Values
+  let current;
+  let toChange;
+  for (let j = 0; j < chars.length; j++) {
+    current = chars[j];
+    toChange = current.charCodeAt(0) - 97;
+    charValueMap[toChange] = vals[j];
+  }
+  // console.log(charValueMap);
+
+  // Process s to find Max Substring
+  return findMaxSubstring(s, charValueMap);
+};
+
+const findMaxSubstring = (str, map) => {
+  let maxCost = 0;
+  let currentCost = 0;
+
+  for (let i = 0; i < str.length; i++) {
+    currentValue = map[str[i].charCodeAt(0) - 97];
+    currentCost = Math.max(
+      currentCost + currentValue,
+      currentValue
+    );
+    maxCost = Math.max(maxCost, currentCost);
+  }
+  return maxCost;
+};
+
+console.log(maximumCostSubstring('adaa', 'd', [-1000]));
+console.log(
+  maximumCostSubstring('abc', 'abc', [-1, -1, -1])
+);
+
+// =============// =============
+// =============// =============
+
+var removeNthFromEnd = function (head, n) {
+  let dummy = new ListNode(0);
+  dummy.next = head;
+  let slow = dummy;
+  let fast = dummy;
+
+  for (let i = 0; i < n; i++) {
+    fast = fast.next;
+  }
+  while (fast.next) {
+    fast = fast.next;
+    slow = slow.next;
+  }
+  slow.next = slow.next.next;
+  return dummy.next;
+};
+
+
+
+// =============// =============
+// =============// =============
+
+var reverseList = function (head) {
+  let node = head;
+  let prev = null;
+  let temp;
+
+  while (node) {
+    temp = node.next;
+    node.next = prev;
+    prev = node;
+    node = temp;
+  }
+
+  return prev;
+};
 
 // =============// =============
 // =============// =============
@@ -819,12 +917,6 @@ var romanToInt = function(s) {
 // =============// =============
 
 // =============// =============
-// =============// =============
-
-// =============// =============
-// =============// =============
-
- // =============// =============
 // =============// =============
 
 // =============// =============

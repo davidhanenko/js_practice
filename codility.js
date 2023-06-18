@@ -225,7 +225,7 @@
 //     let start = Math.ceil(A/K);
 //     let end = Math.floor(B/K);
 
-//     return end -start + 1;
+//     return end - start + 1;
 // }
 
 // ===============================

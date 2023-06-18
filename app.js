@@ -131,7 +131,7 @@
 //   }
 //   return true
 // }
-// console.log(sameFrequensy(182, 281))
+// console.log(sameFrequency(182, 281))
 
 // ----------------------------
 
@@ -272,30 +272,34 @@
 // console.log(fib(5))
 
 // function results(gymnasts, judges) {
-//   let arr = gymnasts.map((g) => {
+//   let arr = gymnasts.map(g => {
 //     let resultArray = judges.reduce((total, j) => {
-//       let score = Math.ceil(Math.random() * Math.floor(6))
-//       return [...total, score]
-//     }, [])
+//       let score = Math.ceil(Math.random() * Math.floor(6));
+//       return [...total, score];
+//     }, []);
 //     let averageScore = resultArray
 //       .sort((a, b) => a - b)
 //       .splice(1, resultArray.length - 2)
-//       .reduce((total, s) => total + s, 0)
-//     return { gymnast: g, averageScore }
-//   })
-//   let sortResultArray = arr.sort((a, b) => b.averageScore - a.averageScore)
+//       .reduce((total, s) => total + s, 0);
+//     return { gymnast: g, averageScore };
+//   });
+
+//   let sortResultArray = arr.sort(
+//     (a, b) => b.averageScore - a.averageScore
+//   );
 //   let uniqueScore = arr.reduce(
 //     (unique, s) =>
-//       unique.some((u) => s.averageScore === u.averageScore)
+//       unique.some(u => s.averageScore === u.averageScore)
 //         ? unique
 //         : [...unique, s],
 //     []
-//   )
-//   let x = uniqueScore[2].averageScore
+//   );
+//   let x = uniqueScore[2].averageScore;
 //   let chempions = sortResultArray.reduce(
-//     (total, g) => (g.averageScore >= x ? [...total, g] : total),
+//     (total, g) =>
+//       g.averageScore >= x ? [...total, g] : total,
 //     []
-//   )
+//   );
 //   let chempionsPlace = chempions.reduce(
 //     (total, g) =>
 //       g.averageScore === uniqueScore[0].averageScore
@@ -304,128 +308,138 @@
 //         ? [...total, { ...g, place: 2 }]
 //         : [...total, { ...g, place: 3 }],
 //     []
-//   )
+//   );
 
-//   return chempionsPlace
+//   return chempionsPlace;
 // }
 
 // console.log(
 //   results(
-//     ['Катя', 'Юля', 'Свєта', 'Женя', 'Оля', 'Галя', 'Ксюша', 'Аліса'],
+//     [
+//       'Катя',
+//       'Юля',
+//       'Свєта',
+//       'Женя',
+//       'Оля',
+//       'Галя',
+//       'Ксюша',
+//       'Аліса',
+//     ],
 //     ['Суддя Дред', 'Феміда', 'Капітан', 'Кролик']
 //   )
-// )
+// );
 
 // athletes:
-// let athletes = [
-//   'Joahn Smith',
-//   'Katy Ivanova',
-//   'Mary King',
-//   'Ann Fox',
-//   'Sandra Trump',
-//   'Amanda Miller',
-// ]
+let athletes = [
+  'Joahn Smith',
+  'Katy Ivanova',
+  'Mary King',
+  'Ann Fox',
+  'Sandra Trump',
+  'Amanda Miller',
+];
 
 // // judges:
-// let judges = ['judge1', 'judge2', 'judge3', 'judge4', 'judge5']
+let judges = [
+  'judge1',
+  'judge2',
+  'judge3',
+  'judge4',
+  'judge5',
+];
 
-// let athletesRes = []
-// let aveScore = 0
-// let arr = []
-
-// //  create class with name of athetes and their score
-// class Prises {
-//   constructor(name, score) {
-//     this.name = name
-//     this.score = score
-//   }
-// }
+let athletesRes = [];
+let aveScore = 0;
+let arr = [];
 
 // //  generate athletes results
-// function athletesResults() {
-//   for (let i = 0; i < judges.length; i++) {
-//     let personalResult = Math.random() * 6
+function athletesResults() {
+  for (let i = 0; i < judges.length; i++) {
+    let personalResult = Math.random() * 6;
 
-//     if (personalResult <= 6) {
-//       let judgeResult = Math.random() * (6 - personalResult)
-//       let totalResult = parseFloat((personalResult + judgeResult).toFixed(1))
+    if (personalResult <= 6) {
+      let judgeResult =
+        Math.random() * (6 - personalResult);
+      let totalResult = parseFloat(
+        (personalResult + judgeResult).toFixed(1)
+      );
 
-//       athletesRes.push(totalResult)
-//     }
-//   }
-// }
+      athletesRes.push(totalResult);
+    }
+  }
+
+  ave(athletesRes);
+}
 
 // // average score minus max and min result
-// function ave() {
-//   let averageScore = athletesRes.slice()
-//   let max = Math.max(...averageScore)
-//   let min = Math.min(...averageScore)
+function ave(resArr) {
+  resArr.sort((a, b) => a - b);
+  resArr.splice(1, resArr.length - 2);
 
-//   averageScore.splice(averageScore.indexOf(max), 1)
-//   averageScore.splice(averageScore.indexOf(min), 1)
+  return (aveScore =
+    resArr.reduce((prev, cur) => prev + cur, 0) /
+    resArr.length);
+}
 
-//   aveScore =
-//     averageScore.reduce((prev, cur) => prev + cur, 0) / averageScore.length
-// }
+function prisePlaces(p) {
+  let sortedArr = p.sort((a, b) => b.score - a.score);
 
-// function prisePlaces(p) {
-//   let sortedArr = p.sort((a, b) => a.score - b.score)
-//   sortedArr.reverse()
-//   console.log(sortedArr)
+  let setResults = new Set();
+  sortedArr.forEach(el => {
+    setResults.add(el.score);
+  });
 
-//   let setResults = new Set()
-//   sortedArr.forEach((el) => {
-//     setResults.add(el.score)
-//   })
-//   console.log(setResults)
+  for (let g of sortedArr) {
+    if (g.score === [...setResults][0]) {
+      console.log(
+        `${g.name} has finished competition on 1st place with result: ${g.score}`
+      );
+    }
+    if (g.score === [...setResults][1]) {
+      console.log(
+        `${g.name} has finished competition on 2nd place with result: ${g.score}`
+      );
+    }
 
-//    for(let g of sortedArr) {
+    if (g.score === [...setResults][2]) {
+      console.log(
+        `${g.name} has finished competition on 3rd place with result: ${g.score}`
+      );
+    }
+  }
+}
 
-//     if (g.score === [...setResults][0]) {
-//       console.log(
-//         `${g.name} has finished competition on 1st place with result: ${g.score}`
-//       )
-//     }
-//     if (g.score === [...setResults][1]) {
-//       console.log(
-//         `${g.name} has finished competition on 2nd place with result: ${g.score}`
-//       )
-//     }
+function showResults() {
+  //show amount of athletes
+  console.log(
+    `In this competition will take part ${athletes.length} athletes, they are: ${athletes}`
+  );
+  console.log(
+    '=============================================================='
+  );
+  //   //names of athlete with results
+  athletes.forEach(el => {
+    athletesRes = [];
 
-//     if (g.score === [...setResults][2]) {
-//       console.log(
-//         `${g.name} has finished competition on 3rd place with result: ${g.score}`
-//       )
-//     }
-//   }
-// }
+    athletesResults();
+    // ave();
+    arr.push({ name: el, score: +aveScore.toFixed(1) });
 
-// function showResults() {
-//   //show amount of athletes
-//   console.log(
-//     `In this competition will take part ${athletes.length} athletes, they are: ${athletes}`
-//   )
+    console.log(
+      `${el} finish with follow results: ${athletesRes}, and average score: ${aveScore.toFixed(
+        1
+      )}`
+    );
+  });
+  console.log(
+    '=============================================================='
+  );
+  // name 3 first places
 
-//   //names of athlete with results
-//   athletes.forEach((el) => {
-//     athletesRes = []
-//     averageScore = []
-//     athletesResults()
-//     ave()
-//     arr.push(new Prises(el, +aveScore.toFixed(1)))
+  prisePlaces(arr);
+}
 
-//     console.log(
-//       `${el} finish with follow results: ${athletesRes}, and average score: ${aveScore.toFixed(
-//         1
-//       )}`
-//     )
-//   })
-//   //name 3 first places
-
-//   prisePlaces(arr)
-// }
-
-// showResults()
+// showResults();
 
 // =======================
 // function minSubarrayLen(arr, num) {
@@ -581,7 +595,6 @@
 
 // console.log(capitalizeFirst(['car', 'taco', 'banana', 'home']))
 
-
 // ====================
 // ====================
 // var maxSubArray = function (nums) {
@@ -605,10 +618,10 @@
 //   let j = 0;
 
 //   for(let i = 0; i<str.length; i++ ) {
-    
+
 //     if(s[j] !== str[i]) {
 //       j = 0;
-//     } 
+//     }
 
 //     if(j === s.length - 1) {
 //       occ++
@@ -623,14 +636,12 @@
 // console.log(subStrOccurence('str', 'weststrtststrraastrh'));
 // ====================
 // ====================
-
-z// =================
+// =================
 // function translit(num) {
 //   const alphabet = [...Array(26)].map((_, y) => String.fromCharCode(y + 97));
 
 //   const numArr = num.toString().split('');
 //   const resArr = [numArr];
-
 
 //   for (let i = 1; i < numArr.length; i++) {
 //     if (parseInt(numArr[i - 1] + numArr[i]) <= alphabet.length) {
@@ -654,3 +665,55 @@ z// =================
 // console.log(translit(11258));
 
 // =================
+
+
+// console.log(
+//   atob(
+//     'aHR0cHM6Ly90bnM0bHBnbXppaXlwbnh4emVsNXNzNW55dTBuZnRvbC5sYW1iZGEtdXJsLnVzLWVhc3QtMS5vbi5hd3MvcmFtcC1jaGFsbGVuZ2UtaW5zdHJ1Y3Rpb25zLw'
+//   )
+// );
+
+// import "./styles.css";
+// import { useState, useEffect } from "react";
+
+// const API_URL =
+//   "https://wgg522pwivhvi5gqsn675gth3q0otdja.lambda-url.us-east-1.on.aws/747269";
+
+// export default function App() {
+//   const [flag, setFlag] = useState(null);
+//   const [index, setIndex] = useState(0);
+
+//   useEffect(() => {
+//     fetch(API_URL)
+//       .then((response) => response.text())
+//       .then((text) => setFlag(text));
+//   }, []);
+
+//   useEffect(() => {
+//     const interval = setInterval(() => {
+//       setIndex((i) => i + 1);
+//     }, 500);
+
+//     return () => clearInterval(interval);
+//   }, []);
+
+//   return (
+//     <div className="App">
+//       {!flag ? (
+//         <p>Loading...</p>
+//       ) : (
+//         <ul>
+//           {flag.slice(0, index).map((el, i) => (
+//             <li key={i}>{el}</li>
+//           ))}
+//         </ul>
+//       )}
+//     </div>
+//   );
+// }
+
+// // const elements = document.querySelectorAll('section[id^="11"] main[id$="22"] article[id*="33"] p.flag');
+// // const url = Array.from(elements)
+// //   .map(el => el.getAttribute('value'))
+// //   .join('');
+// // console.log(url);
