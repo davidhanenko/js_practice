@@ -865,22 +865,51 @@ var reverseList = function (head) {
 // =============// =============
 // =============// =============
 
-var isPalindrome = function (head) {
-  let arr = [];
+// const isPalindrome = function (head) {
+//   let arr = [];
 
-  while (head) {
-    arr.push(head.val);
-    head = head.next;
-  }
+//   while (head) {
+//     arr.push(head.val);
+//     head = head.next;
+//   }
 
-  for (let i = 0; i < arr.length / 2; i++) {
-    if (arr[i] !== arr[arr.length - 1 - i]) return false;
+//   for (let i = 0; i < arr.length / 2; i++) {
+//     if (arr[i] !== arr[arr.length - 1 - i]) return false;
+//   }
+//   return true;
+// };
+
+// =============// =============
+// =============// =============
+
+var addTwoNumbers = function (l1, l2) {
+  let carry = 0;
+  let head = new ListNode(null);
+  let value;
+  let tail = head;
+
+  while (l1 || l2 || carry == 1) {
+    value = carry;
+    value += l1 ? l1.val : 0;
+    value += l2 ? l2.val : 0;
+
+    carry = value > 9 ? 1 : 0;
+
+    let newNode = new ListNode(value % 10);
+
+    if (head === null) {
+      head = newNode;
+      tail = newNode;
+    } else {
+      tail.next = newNode;
+      tail = newNode;
+    }
+
+    l1 = l1?.next;
+    l2 = l2?.next;
   }
-  return true;
+  return head.next;
 };
-
-// =============// =============
-// =============// =============
 
 // =============// =============
 // =============// =============
