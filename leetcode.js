@@ -914,6 +914,36 @@ var addTwoNumbers = function (l1, l2) {
 // =============// =============
 // =============// =============
 
+// Given an array of intervals where intervals[i] = [starti, endi], merge all overlapping intervals, and return an array of the non-overlapping intervals that cover all the intervals in the input.
+
+ 
+
+// Example 1:
+
+// Input: intervals = [[1,3],[2,6],[8,10],[15,18]]
+// Output: [[1,6],[8,10],[15,18]]
+// Explanation: Since intervals [1,3] and [2,6] overlap, merge them into [1,6].
+
+var merge = function(intervals) {
+    let stack = [];
+    let temp;
+
+    for(let i=0; i<intervals.length; i++) {
+        if(stack.length > 0) {
+            temp = stack.pop();
+
+            if(temp[1] >= intervals[i][0] || temp[0] >= ) {
+                stack.push([temp[0], intervals[i][1]])
+            } else {
+                stack.push(temp);
+                stack.push(intervals[i]);
+            }
+        } else stack.push(intervals[i])
+    }
+
+    return stack;
+};
+
 // =============// =============
 // =============// =============
 
