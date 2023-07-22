@@ -928,20 +928,15 @@ var merge = function (intervals) {
   let stack = [];
   let temp;
 
-  intervals = intervals.sort((a, b) => a[0] - b[0]);
+  intervals.sort((a, b) => a[0] - b[0]);
 
   for (let i = 0; i < intervals.length; i++) {
     if (stack.length > 0) {
       temp = stack.pop();
 
-      if (
-        (temp[1] >= intervals[i][0] &&
-          temp[1] <= intervals[i][1]) ||
-        (intervals[i][1] >= temp[0] &&
-          intervals[i][1] <= temp[1])
-      ) {
+      if (intervals[i][0] <= temp[1]) {
         stack.push([
-          Math.min(temp[0], intervals[i][0]),
+          temp[0],
           Math.max(temp[1], intervals[i][1]),
         ]);
       } else {
