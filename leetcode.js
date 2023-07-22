@@ -924,24 +924,34 @@ var addTwoNumbers = function (l1, l2) {
 // Output: [[1,6],[8,10],[15,18]]
 // Explanation: Since intervals [1,3] and [2,6] overlap, merge them into [1,6].
 
-var merge = function(intervals) {
-    let stack = [];
-    let temp;
+var merge = function (intervals) {
+  let stack = [];
+  let temp;
 
-    for(let i=0; i<intervals.length; i++) {
-        if(stack.length > 0) {
-            temp = stack.pop();
+  intervals = intervals.sort((a, b) => a[0] - b[0]);
 
-            if(temp[1] >= intervals[i][0] || temp[0] >= ) {
-                stack.push([temp[0], intervals[i][1]])
-            } else {
-                stack.push(temp);
-                stack.push(intervals[i]);
-            }
-        } else stack.push(intervals[i])
-    }
+  for (let i = 0; i < intervals.length; i++) {
+    if (stack.length > 0) {
+      temp = stack.pop();
 
-    return stack;
+      if (
+        (temp[1] >= intervals[i][0] &&
+          temp[1] <= intervals[i][1]) ||
+        (intervals[i][1] >= temp[0] &&
+          intervals[i][1] <= temp[1])
+      ) {
+        stack.push([
+          Math.min(temp[0], intervals[i][0]),
+          Math.max(temp[1], intervals[i][1]),
+        ]);
+      } else {
+        stack.push(temp);
+        stack.push(intervals[i]);
+      }
+    } else stack.push(intervals[i]);
+  }
+
+  return stack;
 };
 
 // =============// =============
