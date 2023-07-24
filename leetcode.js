@@ -952,6 +952,22 @@ var merge = function (intervals) {
 // =============// =============
 // =============// =============
 
+var lengthOfLastWord = function (s) {
+  // let arr = s.trim().split(' ');
+  // return arr[arr.length-1].length;
+
+  s = s.trim();
+  let i = s.length - 1;
+  let l = 0;
+
+  while (i >= 0 && s[i] !== ' ') {
+    i--;
+    l++;
+  }
+  return l;
+};
+
+
 // =============// =============
 // =============// =============
 
